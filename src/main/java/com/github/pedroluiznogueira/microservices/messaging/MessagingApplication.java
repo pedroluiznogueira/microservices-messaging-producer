@@ -18,6 +18,6 @@ public class MessagingApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-
+		rabbitTemplate.convertAndSend("First message!");
 	}
 }
