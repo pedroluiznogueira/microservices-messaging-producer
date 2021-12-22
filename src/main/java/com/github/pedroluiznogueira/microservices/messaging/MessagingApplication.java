@@ -1,5 +1,6 @@
 package com.github.pedroluiznogueira.microservices.messaging;
 
+import com.github.pedroluiznogueira.microservices.messaging.model.Message;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -19,6 +20,10 @@ public class MessagingApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		rabbitTemplate.convertAndSend("FirstExchange", "firstRouting", "First Message");
+		Message message = new Message();
+		message.setName("Message name");
+		message.setDescription("Message description");
+
+		rabbitTemplate.convertAndSend("FirstExchange", "firstRouting", message);
 	}
 }
