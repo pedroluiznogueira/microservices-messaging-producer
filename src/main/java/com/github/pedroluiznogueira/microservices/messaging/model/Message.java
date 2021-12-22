@@ -1,6 +1,8 @@
 package com.github.pedroluiznogueira.microservices.messaging.model;
 
-public class Message {
+import java.io.Serializable;
+
+public class Message implements Serializable {
 
     private String name;
     private String description;
