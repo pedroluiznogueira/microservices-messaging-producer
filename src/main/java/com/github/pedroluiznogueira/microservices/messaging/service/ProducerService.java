@@ -7,11 +7,12 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 @Service
-public class RabbitMqSender {
+public class ProducerService {
+
     private RabbitTemplate rabbitTemplate;
 
     @Autowired
-    public RabbitMqSender(RabbitTemplate rabbitTemplate) {
+    public ProducerService(RabbitTemplate rabbitTemplate) {
         this.rabbitTemplate = rabbitTemplate;
     }
 
@@ -21,9 +22,8 @@ public class RabbitMqSender {
     @Value("${spring.rabbitmq.routingkey}")
     private String routingkey;
 
-    public void send(User user){
+    public void sendMessage(User user) {
         rabbitTemplate.convertAndSend(exchange,routingkey, user);
-
     }
 
 }

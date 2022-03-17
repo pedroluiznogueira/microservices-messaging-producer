@@ -1,5 +1,5 @@
 app:
-  message: Message has been sent Successfully..
+  message: message succesfuly sent
 spring:
   rabbitmq:
     host: localhost
@@ -7,7 +7,6 @@ spring:
     port: 15672
     username: guest
     exchange: user.exchange
-    queue: user.queue
     routingkey: user.routingkey
 server:
-  port: 9091
+  port: 8081
